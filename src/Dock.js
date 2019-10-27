@@ -99,6 +99,8 @@ function getDockStyles(
     posStyle = {
       width: absSize,
       left: isVisible ? 0 : '-' + absSize
+      top: 64,
+      height: fullHeight
     };
     break;
   case 'right':
@@ -219,7 +221,7 @@ export default class Dock extends Component {
       size: props.size || props.defaultSize,
       isDimHidden: !props.isVisible,
       fullWidth: typeof(window) !== 'undefined' && window.innerWidth,
-      fullHeight: typeof(window) !== 'undefined' && window.innerHeight,
+      fullHeight: typeof(window) !== 'undefined' && window.innerHeight - 64,
       isTransitionStarted: false,
       isWindowResizing: false
     };
@@ -242,7 +244,7 @@ export default class Dock extends Component {
 
   static defaultProps = {
     position: 'left',
-    zIndex: 99999999,
+    //zIndex: 99999999,
     fluid: true,
     defaultSize: 0.3,
     dimMode: 'opaque',
@@ -364,7 +366,7 @@ export default class Dock extends Component {
   updateWindowSize = (windowResize) => {
     const sizeState = {
       fullWidth: window.innerWidth,
-      fullHeight: window.innerHeight,
+      fullHeight: window.innerHeight - 64,
     };
 
     if (windowResize) {

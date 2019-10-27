@@ -1,5 +1,5 @@
 {
-  "name": "react-dock",
+  "name": "aengine-react-dock",
   "version": "0.2.4",
   "description": "Resizable dockable react component",
   "scripts": {
